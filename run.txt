@@ -1,0 +1,5 @@
+flutter pub global run webdev serve --auto restart
+
+flutter pub run build_runner build
+
+flutter pub run build_runner serve
