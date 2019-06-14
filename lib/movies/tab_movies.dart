@@ -103,11 +103,4 @@ class _TabMoviesState extends State<TabMovies>
   Future<void> _onRefreshError() {
     return bloc.fetch(isRefresh: true);
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-
-    //_bloc.close();
-  }
 }
