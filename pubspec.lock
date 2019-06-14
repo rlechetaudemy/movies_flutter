@@ -43,13 +43,24 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.2"
-  event_bus:
+  flare_dart:
+    dependency: transitive
+    description:
+      path: flare_dart
+      ref: dev
+      resolved-ref: "8f04aa6d355b3b5c0ed1ba515988347510cefbb6"
+      url: "git://github.com/2d-inc/Flare-Flutter.git"
+    source: git
+    version: "1.4.1"
+  flare_flutter:
     dependency: "direct main"
     description:
-      name: event_bus
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.0"
+      path: flare_flutter
+      ref: dev
+      resolved-ref: "8f04aa6d355b3b5c0ed1ba515988347510cefbb6"
+      url: "git://github.com/2d-inc/Flare-Flutter.git"
+    source: git
+    version: "1.5.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -130,6 +141,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.22.0"
+  shared_preferences:
+    dependency: "direct main"
+    description:
+      name: shared_preferences
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.3+1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -207,4 +225,4 @@ packages:
     version: "2.0.8"
 sdks:
   dart: ">=2.2.0 <3.0.0"
-  flutter: ">=1.2.1 <2.0.0"
+  flutter: ">=1.5.0 <2.0.0"

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movies_udemy/movies/movie.dart';
 import 'package:flutter_movies_udemy/movies/movie_bloc.dart';
+import 'package:flare_flutter/flare_actor.dart';
 
 class MoviePage extends StatefulWidget {
   final Movie movie;
@@ -37,22 +38,7 @@ class _MoviePageState extends State<MoviePage> {
         expandedHeight: 350,
         pinned: false,
         actions: <Widget>[
-          IconButton(
-            icon: StreamBuilder<bool>(
-              initialData: false,
-              stream: _bloc.getFavoritos,
-              builder: (context, snapshot) {
-                return Icon(
-                  Icons.favorite,
-                  size: 34,
-                  color: snapshot.data ? Colors.red : Colors.white,
-                );
-              },
-            ),
-            onPressed: () {
-              _onClickFavoritar();
-            },
-          ),
+          iconFavorito()
         ],
         flexibleSpace: FlexibleSpaceBar(
           centerTitle: false,
@@ -70,6 +56,36 @@ class _MoviePageState extends State<MoviePage> {
       ),
       SliverList(delegate: _sliver())
     ]);
+  }
+
+  /**
+   * Icone de favoritos com o Flare.
+   * O parâmetro animation recebe qual animação deve fazer.
+   * Lá no flare podemos ver que esse arquivo possui as animações Favorite e Unfavorite
+   * https://www.2dimensions.com/a/funwithflutter/files/flare/heart
+   */
+  iconFavorito() {
+    return InkWell(
+      onTap: () {
+        _onClickFavoritar();
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 10),
+        width: 36,
+        height: 36,
+        child: StreamBuilder(
+            initialData: false,
+            stream: _bloc.getFavoritos,
+            builder: (context, snapshot) {
+              return FlareActor(
+                "assets/animations/favorite.flr",
+                color: snapshot.data ? Colors.red : Colors.white,
+                shouldClip: false,
+                animation: snapshot.data ? "Favorite" : "Unfavorite",
+              );
+            }),
+      ),
+    );
   }
 
   _sliver() {
