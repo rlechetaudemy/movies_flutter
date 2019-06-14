@@ -12,7 +12,7 @@ class MoviesApi {
       // await Future.delayed(Duration(seconds: 1));
 
       final url =
-          "https://api.themoviedb.org/3/movie/popular?api_key=9ac4466dcf069ac63db44c560c9e8731&language=pt-BR";
+          "httpsXXXX://api.themoviedb.org/3/movie/popular?api_key=9ac4466dcf069ac63db44c560c9e8731&language=pt-BR";
       print("> get: $url");
 
       final response = await http.get(url);

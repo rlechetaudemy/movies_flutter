@@ -42,42 +42,36 @@ class _TabFavoritosState extends State<TabFavoritos>
 
         GenericResponse<List<Movie>> response = snapshot.data;
 
-        if (response.isOk() && response.result.isEmpty) {
-          // Lista vazia
-          return TextEmpty("Nenhum filme nos favoritos.");
+        if (!response.isOk()) {
+          // Erro
+          return Center(
+            child: TextError(
+              response.msg,
+              onRefresh: _onRefreshError,
+            ),
+          );
         }
 
-        return response.isOk()
-            ? _griView(response.result, context, true)
-            : Center(
-                child: TextError(
-                  response.msg,
-                  onRefresh: _onRefreshError,
-                ),
-              );
+        List<Movie> movies = response.result;
+
+        return movies.isEmpty
+            ? TextEmpty("Nenhum filme nos favoritos.")
+            : _griView(response.result, context);
       },
     );
   }
 
-  _griView(List<Movie> movies, context, gridOn) {
+  _griView(List<Movie> movies, context) {
     return RefreshIndicator(
       onRefresh: _onRefresh,
-      child: gridOn
-          ? GridView.builder(
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-              itemCount: movies.length,
-              itemBuilder: (context, index) {
-                return _item(movies, index, context);
-              },
-            )
-          : ListView.builder(
-              itemExtent: 600,
-              itemCount: movies.length,
-              itemBuilder: (context, index) {
-                return _item(movies, index, context);
-              },
-            ),
+      child: GridView.builder(
+        gridDelegate:
+        SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        itemCount: movies.length,
+        itemBuilder: (context, index) {
+          return _item(movies, index, context);
+        },
+      ),
     );
   }
 
