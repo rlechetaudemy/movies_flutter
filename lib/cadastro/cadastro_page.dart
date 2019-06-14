@@ -100,14 +100,20 @@ class _CadastroPageState extends State<CadastroPage> {
               builder: (context, snapshot) {
                 return Container(
                   margin: EdgeInsets.only(top: 16),
-                  child: AppButton("Cadastrar", () => _onClickCadastrar(),
-                      showProgress: snapshot.data),
+                  child: AppButton(
+                    "Cadastrar",
+                    _onClickCadastrar,
+                    showProgress: snapshot.data,
+                  ),
                 );
               },
             ),
             Container(
               margin: EdgeInsets.only(top: 16),
-              child: AppButtonCancel("Cancelar", _onClickCancelar),
+              child: AppButtonCancel(
+                "Cancelar",
+                _onClickCancelar,
+              ),
             )
           ],
         ),

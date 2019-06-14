@@ -9,12 +9,16 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final backgroundColor1  = Colors.orange;
+    final backgroundColor2  = Colors.red;
+    final textColor         = Colors.white;
+
     return Container(
       width: 200,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(22),
         gradient: LinearGradient(
-          colors: [Colors.orange, Colors.red],
+          colors: [backgroundColor1, backgroundColor2],
           begin: FractionalOffset.topCenter,
           end: FractionalOffset.bottomCenter,
         ),
@@ -23,14 +27,14 @@ class AppButton extends StatelessWidget {
         child: showProgress
             ? Center(
                 child: CircularProgressIndicator(
-                  valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
+                  valueColor: new AlwaysStoppedAnimation<Color>(textColor),
                 ),
               )
             : Text(
                 text,
                 style: TextStyle(
                   fontSize: 18,
-                  color: Colors.white,
+                  color: textColor,
                 ),
               ),
         onPressed: callback,

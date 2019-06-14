@@ -44,7 +44,7 @@ class _TabMoviesState extends State<TabMovies>
 
         if (response.isOk() && response.result.isEmpty) {
           // Lista vazia
-          return TextEmpty("Nenhum filme nos favoritos.");
+          return TextEmpty("Nenhum filme.");
         }
 
         return response.isOk()

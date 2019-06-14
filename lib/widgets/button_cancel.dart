@@ -8,10 +8,13 @@ class AppButtonCancel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final backgroundColor = Colors.white;
+    final textColor       = Colors.deepOrange;
+
     return Container(
       width: 200,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(22),
       ),
       child: FlatButton(
@@ -19,7 +22,7 @@ class AppButtonCancel extends StatelessWidget {
           text,
           style: TextStyle(
             fontSize: 18,
-            color: Colors.deepOrange,
+            color: textColor,
           ),
         ),
         onPressed: callback,

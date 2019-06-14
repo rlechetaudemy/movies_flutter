@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage>
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.exit_to_app),
-            onPressed: () => _onClickLogout(context),
+            onPressed: _onClickLogout,
           )
         ],
         bottom: TabBar(
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage>
     );
   }
 
-  _onClickLogout(context) {
+  _onClickLogout() {
     pushReplacement(context, LoginPage());
   }
 }

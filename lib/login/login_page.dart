@@ -29,16 +29,12 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
-        children: <Widget>[
-          BgLogin(),
-          _body()
-        ],
+        children: <Widget>[BgLogin(), _body()],
       ),
     );
   }
 
   _body() {
-
     return Form(
       key: _formKey,
       child: Container(
@@ -74,14 +70,15 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             StreamBuilder<bool>(
-              stream: _bloc.progressStream,
+              stream: _bloc.progress.stream,
               initialData: false,
               builder: (context, snapshot) {
                 return Container(
                   margin: EdgeInsets.only(top: 16),
                   child: AppButton(
-                    "Login", _onClickLogin,
-                    showProgress : snapshot.data
+                    "Login",
+                    _onClickLogin,
+                    showProgress: snapshot.data,
                   ),
                 );
               },
@@ -123,7 +120,6 @@ class _LoginPageState extends State<LoginPage> {
 
     if (response.isOk()) {
       pushReplacement(context, HomePage());
-      print("OK!");
     } else {
       alert(context, "Filmes", "Erro de login");
     }
