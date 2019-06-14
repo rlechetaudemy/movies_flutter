@@ -1,8 +1,8 @@
-import 'package:flutter_movies_udemy/login/login_api.dart';
 import 'package:rxdart/rxdart.dart';
 
 class ProgressBloc {
   final controller = BehaviorSubject<bool>();
+
   get stream => controller.stream;
 
   void setProgress(bool b) {

@@ -1,33 +1,22 @@
-import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter_movies_udemy/movies/movie.dart';
 import 'package:flutter_movies_udemy/movies/movie_db.dart';
-import 'package:rxdart/rxdart.dart';
+import 'package:flutter_movies_udemy/utils/generic_bloc.dart';
 
-class FavoritosBloc extends BlocBase {
-  // stream
-  final _movies = BehaviorSubject<List<Movie>>();
-
-  get moviesStream => _movies.stream;
-
+class FavoritosBloc extends SimpleBloc<List<Movie>> {
   Future fetch({bool isRefresh = false}) async {
-
     try {
       if (isRefresh) {
-        _movies.sink.add(null);
+        add(null);
       }
 
       final db = MovieDB.getInstance();
       final movies = await db.getMovies();
 
-      _movies.sink.add(movies);
+      add(movies);
 
       return movies;
-    } catch(error) {
-      moviesStream.addError("Nenhum Filme !!!");
+    } catch (error) {
+      addError("Nenhum Filme !!!");
     }
-  }
-
-  close() {
-    _movies.close();
   }
 }

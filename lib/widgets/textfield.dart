@@ -25,10 +25,7 @@ class AppText extends StatelessWidget {
       decoration: InputDecoration(
           labelText: this.label,
           labelStyle: TextStyle(
-            color: Colors.grey,
-            fontSize: 18,
-            fontWeight: FontWeight.bold
-          ),
+              color: Colors.grey, fontSize: 18, fontWeight: FontWeight.bold),
           hintText: this.hint,
 //          hintStyle: TextStyle(
 //            color: Colors.deepOrange,

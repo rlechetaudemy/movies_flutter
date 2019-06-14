@@ -32,7 +32,7 @@ class _TabFavoritosState extends State<TabFavoritos>
     final favoritosBloc = BlocProvider.getBloc<FavoritosBloc>();
 
     return StreamBuilder(
-      stream: favoritosBloc.moviesStream,
+      stream: favoritosBloc.stream,
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return Center(
@@ -66,7 +66,7 @@ class _TabFavoritosState extends State<TabFavoritos>
       onRefresh: _onRefresh,
       child: GridView.builder(
         gridDelegate:
-        SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemCount: movies.length,
         itemBuilder: (context, index) {
           return _item(movies, index, context);

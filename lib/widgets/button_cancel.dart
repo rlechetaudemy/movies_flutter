@@ -9,7 +9,7 @@ class AppButtonCancel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final backgroundColor = Colors.white;
-    final textColor       = Colors.deepOrange;
+    final textColor = Colors.deepOrange;
 
     return Container(
       width: 200,

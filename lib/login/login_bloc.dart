@@ -1,6 +1,5 @@
 import 'package:flutter_movies_udemy/login/login_api.dart';
 import 'package:flutter_movies_udemy/utils/progress_bloc.dart';
-import 'package:rxdart/rxdart.dart';
 
 class LoginBloc {
   final progress = ProgressBloc();

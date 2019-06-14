@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movies_udemy/movies/movie.dart';
 import 'package:flutter_movies_udemy/movies/movies_bloc.dart';
 import 'package:flutter_movies_udemy/utils/nav.dart';
-import 'package:flutter_movies_udemy/utils/response.dart';
 import 'package:flutter_movies_udemy/widgets/text_empty.dart';
 import 'package:flutter_movies_udemy/widgets/text_error.dart';
 
@@ -63,7 +62,7 @@ class _TabMoviesState extends State<TabMovies>
       onRefresh: _onRefresh,
       child: GridView.builder(
         gridDelegate:
-        SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemCount: movies.length,
         itemBuilder: (context, index) {
           return _item(movies, index, context);

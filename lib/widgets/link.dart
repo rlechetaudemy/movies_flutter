@@ -5,7 +5,7 @@ class AppLink extends StatelessWidget {
   final VoidCallback onPressed;
   final Color color;
 
-  AppLink(this.text, this.onPressed,{this.color = Colors.blue});
+  AppLink(this.text, this.onPressed, {this.color = Colors.blue});
 
   @override
   Widget build(BuildContext context) {

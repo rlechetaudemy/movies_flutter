@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class TextError extends StatelessWidget {
@@ -14,20 +13,16 @@ class TextError extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(msg,
-            style: TextStyle(
-              color: Colors.red,
-              fontSize: 24
-            ),
+          Text(
+            msg,
+            style: TextStyle(color: Colors.red, fontSize: 24),
           ),
           SizedBox(
             height: 12,
           ),
-          Text("Clique para tentar novamente.",
-            style: TextStyle(
-                color: Colors.red,
-                fontSize: 24
-            ),
+          Text(
+            "Clique para tentar novamente.",
+            style: TextStyle(color: Colors.red, fontSize: 24),
           ),
         ],
       ),

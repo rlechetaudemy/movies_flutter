@@ -1,5 +1,4 @@
 import 'package:flutter_movies_udemy/utils/progress_bloc.dart';
-import 'package:rxdart/rxdart.dart';
 
 import 'cadastro_api.dart';
 

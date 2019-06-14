@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class TextEmpty extends StatelessWidget {
@@ -11,11 +10,9 @@ class TextEmpty extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text(msg,
-          style: TextStyle(
-            color: Colors.red,
-            fontSize: 24
-          ),
+        Text(
+          msg,
+          style: TextStyle(color: Colors.red, fontSize: 24),
         )
       ],
     );
