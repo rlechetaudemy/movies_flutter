@@ -19,6 +19,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.deepOrange,
+          textTheme: TextTheme(
+              title: TextStyle(fontSize: 30, color: Colors.red),
+              subtitle: TextStyle(fontSize: 20, color: Colors.red),
+              body1: TextStyle(fontSize: 15, color: Colors.red)),
         ),
         home: LoginPage(),
       ),

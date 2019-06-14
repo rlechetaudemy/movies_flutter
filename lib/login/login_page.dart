@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                 return Container(
                   margin: EdgeInsets.only(top: 16),
                   child: AppButton(
-                    "Login", () => _onClickLogin(),
+                    "Login", _onClickLogin,
                     showProgress : snapshot.data
                   ),
                 );
