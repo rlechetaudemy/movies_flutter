@@ -25,7 +25,7 @@ class LoginResponse {
 }
 
 class LoginApi {
-  static Future<Response<LoginResponse>> login(LoginInput l) async {
+  static Future<GenericResponse<LoginResponse>> login(LoginInput l) async {
     await Future.delayed(Duration(milliseconds: 200));
 
     final url = "http://livrowebservices.com.br/rest/login";
@@ -43,6 +43,6 @@ class LoginApi {
 
     final r = LoginResponse.fromJson(map);
 
-    return Response(r.status, msg: r.msg);
+    return GenericResponse(r.status, msg: r.msg);
   }
 }

@@ -1,10 +1,10 @@
-class Response<T> {
+class GenericResponse<T> {
   bool status;
   String msg;
 
   final T result;
 
-  Response(this.status, {this.msg, this.result});
+  GenericResponse(this.status, {this.msg, this.result});
 
   isOk() {
     return status;

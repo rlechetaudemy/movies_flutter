@@ -8,7 +8,7 @@ import 'movie.dart';
 class MoviesBloc extends BlocBase {
 
   // stream
-  final _moviesController = BehaviorSubject<Response<List<Movie>>>();
+  final _moviesController = BehaviorSubject<GenericResponse<List<Movie>>>();
 
   get moviesStream => _moviesController.stream;
 

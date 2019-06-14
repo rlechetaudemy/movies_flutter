@@ -40,7 +40,7 @@ class _TabMoviesState extends State<TabMovies>
           );
         }
 
-        Response<List<Movie>> response = snapshot.data;
+        GenericResponse<List<Movie>> response = snapshot.data;
 
         if (response.isOk() && response.result.isEmpty) {
           // Lista vazia

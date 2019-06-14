@@ -22,11 +22,11 @@ class CadastroInput {
 }
 
 class CadastroApi {
-  static Future<Response> cadastrar(CadastroInput c) async {
+  static Future<GenericResponse> cadastrar(CadastroInput c) async {
     print("> post cadastro $c");
 
     await Future.delayed(Duration(seconds: 2));
 
-    return Response(true);
+    return GenericResponse(true);
   }
 }
