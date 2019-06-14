@@ -95,7 +95,7 @@ class _CadastroPageState extends State<CadastroPage> {
               ),
             ),
             StreamBuilder<bool>(
-              stream: _bloc.progressStream,
+              stream: _bloc.progress.stream,
               initialData: false,
               builder: (context, snapshot) {
                 return Container(
