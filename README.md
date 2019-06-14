@@ -1,5 +1,5 @@
 # movies_flutter
-App simples de lista de filmes utiliado como exemplo do curso Flutter Essencial.
+App simples de lista de filmes utilizado como exemplo do curso Flutter Essencial.
 
 https://www.udemy.com/flutter-essencial/
 
