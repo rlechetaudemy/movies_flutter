@@ -4,18 +4,23 @@ import 'package:flutter/material.dart';
 class AppText extends StatelessWidget {
   final String label;
   final String hint;
+  final String value;
   final Function validator;
   final Function onSave;
   final bool password;
 
   AppText(this.label, this.hint,
-      {this.validator, this.onSave, this.password = false});
+      {this.value, this.validator, this.onSave, this.password = false});
 
   @override
   Widget build(BuildContext context) {
+    print("> ${label}");
+    print("> ${value}");
+
     return TextFormField(
       validator: this.validator,
       onSaved: this.onSave,
+      initialValue: "($value)",
       obscureText: password,
       keyboardType: TextInputType.text,
       style: TextStyle(

@@ -16,7 +16,6 @@ class TabMovies extends StatefulWidget {
 
 class _TabMoviesState extends State<TabMovies>
     with AutomaticKeepAliveClientMixin<TabMovies> {
-//  final bloc = MoviesBloc();
 
   MoviesBloc get bloc => BlocProvider.getBloc<MoviesBloc>();
 

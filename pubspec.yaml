@@ -27,7 +27,7 @@ dependencies:
   bloc_pattern: ^2.1.9+3
   http: ^0.12.0+2
   sqflite: any
-  event_bus: ^1.1.0
+  shared_preferences: ^0.5.3+1
 
 #  flare_flutter:
 #    git:

@@ -1,4 +1,4 @@
-# movies_flutter_2019
+# movies_flutter
 App simples de lista de filmes feita com Flutter (aula 1 e aula 2).
 
 ## Projeto utiliza:
