@@ -1,12 +1,11 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movies_udemy/movies/movie.dart';
+import 'package:flutter_movies_udemy/movies/movie_page.dart';
 import 'package:flutter_movies_udemy/movies/movies_bloc.dart';
 import 'package:flutter_movies_udemy/utils/nav.dart';
 import 'package:flutter_movies_udemy/widgets/text_empty.dart';
 import 'package:flutter_movies_udemy/widgets/text_error.dart';
-
-import 'movie_page.dart';
 
 class TabMovies extends StatefulWidget {
   @override
