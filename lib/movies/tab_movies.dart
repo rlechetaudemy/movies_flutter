@@ -33,29 +33,27 @@ class _TabMoviesState extends State<TabMovies>
     return StreamBuilder(
       stream: bloc.moviesStream,
       builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          // Erro
+          return Center(
+            child: TextError(
+              snapshot.error,
+              onRefresh: _onRefreshError,
+            ),
+          );
+        }
+
         if (!snapshot.hasData) {
           return Center(
             child: CircularProgressIndicator(),
           );
         }
 
-        GenericResponse<List<Movie>> response = snapshot.data;
-
-        if (!response.isOk()) {
-          // Erro
-          return Center(
-            child: TextError(
-              response.msg,
-              onRefresh: _onRefreshError,
-            ),
-          );
-        }
-
-        List<Movie> movies = response.result;
+        List<Movie> movies = snapshot.data;
 
         return movies.isEmpty
             ? TextEmpty("Nenhum filme.")
-            : _griView(response.result, context);
+            : _griView(movies, context);
       },
     );
   }

@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 class MoviesApi {
   static bool FAKE = false;
 
-  static Future<GenericResponse<List<Movie>>> getMovies() async {
+  static Future<List<Movie>> getMovies() async {
     try {
       // await Future.delayed(Duration(seconds: 1));
 
@@ -27,11 +27,11 @@ class MoviesApi {
       List<Movie> movies =
           mapMovies.map<Movie>((json) => Movie.fromJson(json)).toList();
 
-      return GenericResponse(true, result: movies);
+      return movies;
     } catch (error) {
       print("MovieApi error $error");
 
-      return GenericResponse(false, msg: "Erro ao carregar os filmes");
+      throw error;
     }
   }
 }

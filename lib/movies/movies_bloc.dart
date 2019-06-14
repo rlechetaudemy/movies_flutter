@@ -8,21 +8,25 @@ import 'movie.dart';
 class MoviesBloc extends BlocBase {
 
   // stream
-  final _moviesController = BehaviorSubject<GenericResponse<List<Movie>>>();
+  final _moviesController = BehaviorSubject<List<Movie>>();
 
   get moviesStream => _moviesController.stream;
 
   Future fetch({bool isRefresh = false}) async {
 
-    if (isRefresh) {
-      _moviesController.sink.add(null);
+    try {
+      if (isRefresh) {
+        _moviesController.sink.add(null);
+      }
+
+      final movies = await MoviesApi.getMovies();
+
+      _moviesController.sink.add(movies);
+
+      return movies;
+    } catch(error) {
+      _moviesController.addError("Nenhum Filme !!!");
     }
-
-    final movies = await MoviesApi.getMovies();
-
-    _moviesController.sink.add(movies);
-
-    return movies;
   }
 
   @override

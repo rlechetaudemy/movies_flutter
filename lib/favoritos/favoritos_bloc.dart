@@ -6,7 +6,7 @@ import 'package:rxdart/rxdart.dart';
 
 class FavoritosBloc extends BlocBase {
   // stream
-  final _movies = BehaviorSubject<GenericResponse<List<Movie>>>();
+  final _movies = BehaviorSubject<List<Movie>>();
 
   get moviesStream => _movies.stream;
 
@@ -18,14 +18,13 @@ class FavoritosBloc extends BlocBase {
       }
 
       final db = MovieDB.getInstance();
-      final list = await db.getMovies();
-      final movies = GenericResponse(true, result: list);
+      final movies = await db.getMovies();
 
       _movies.sink.add(movies);
 
       return movies;
-    } finally {
-
+    } catch(error) {
+      moviesStream.addError("Nenhum Filme !!!");
     }
   }
 
