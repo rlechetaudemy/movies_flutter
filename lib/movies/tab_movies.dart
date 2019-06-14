@@ -31,7 +31,7 @@ class _TabMoviesState extends State<TabMovies>
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: bloc.moviesStream,
+      stream: bloc.stream,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           // Erro

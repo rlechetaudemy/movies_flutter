@@ -1,7 +1,6 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter_movies_udemy/movies/movie.dart';
 import 'package:flutter_movies_udemy/movies/movie_db.dart';
-import 'package:flutter_movies_udemy/utils/response.dart';
 import 'package:rxdart/rxdart.dart';
 
 class FavoritosBloc extends BlocBase {
