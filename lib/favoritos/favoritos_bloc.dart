@@ -29,7 +29,8 @@ class FavoritosBloc extends BlocBase {
     }
   }
 
-  close() {
+  @override
+  dispose() {
     _movies.close();
   }
 }
