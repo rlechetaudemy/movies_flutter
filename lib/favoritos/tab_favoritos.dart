@@ -1,10 +1,9 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_movies_udemy/favoritos/favoritos_bloc.dart';
 import 'package:flutter_movies_udemy/movies/movie.dart';
 import 'package:flutter_movies_udemy/movies/movie_page.dart';
+import 'package:flutter_movies_udemy/favoritos/favoritos_bloc.dart';
 import 'package:flutter_movies_udemy/utils/nav.dart';
-import 'package:flutter_movies_udemy/utils/response.dart';
 import 'package:flutter_movies_udemy/widgets/text_empty.dart';
 import 'package:flutter_movies_udemy/widgets/text_error.dart';
 
@@ -15,48 +14,45 @@ class TabFavoritos extends StatefulWidget {
 
 class _TabFavoritosState extends State<TabFavoritos>
     with AutomaticKeepAliveClientMixin<TabFavoritos> {
+
   @override
   bool get wantKeepAlive => true;
 
-  FavoritosBloc get favoritosBloc => BlocProvider.getBloc<FavoritosBloc>();
+  FavoritosBloc get bloc => BlocProvider.getBloc<FavoritosBloc>();
 
   @override
   void initState() {
     super.initState();
 
-    favoritosBloc.fetch();
+    bloc.fetch();
   }
 
   @override
   Widget build(BuildContext context) {
-    final favoritosBloc = BlocProvider.getBloc<FavoritosBloc>();
-
     return StreamBuilder(
-      stream: favoritosBloc.stream,
+      stream: bloc.stream,
       builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          // Erro
+          return Center(
+            child: TextError(
+              snapshot.error,
+              onRefresh: _onRefreshError,
+            ),
+          );
+        }
+
         if (!snapshot.hasData) {
           return Center(
             child: CircularProgressIndicator(),
           );
         }
 
-        GenericResponse<List<Movie>> response = snapshot.data;
-
-        if (!response.isOk()) {
-          // Erro
-          return Center(
-            child: TextError(
-              response.msg,
-              onRefresh: _onRefreshError,
-            ),
-          );
-        }
-
-        List<Movie> movies = response.result;
+        List<Movie> movies = snapshot.data;
 
         return movies.isEmpty
             ? TextEmpty("Nenhum filme nos favoritos.")
-            : _griView(response.result, context);
+            : _griView(movies, context);
       },
     );
   }
@@ -66,7 +62,7 @@ class _TabFavoritosState extends State<TabFavoritos>
       onRefresh: _onRefresh,
       child: GridView.builder(
         gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemCount: movies.length,
         itemBuilder: (context, index) {
           return _item(movies, index, context);
@@ -102,10 +98,10 @@ class _TabFavoritosState extends State<TabFavoritos>
   }
 
   Future<void> _onRefresh() {
-    return favoritosBloc.fetch();
+    return bloc.fetch();
   }
 
   Future<void> _onRefreshError() {
-    return favoritosBloc.fetch(isRefresh: true);
+    return bloc.fetch(isRefresh: true);
   }
 }

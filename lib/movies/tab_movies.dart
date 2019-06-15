@@ -14,10 +14,11 @@ class TabMovies extends StatefulWidget {
 
 class _TabMoviesState extends State<TabMovies>
     with AutomaticKeepAliveClientMixin<TabMovies> {
-  MoviesBloc get bloc => BlocProvider.getBloc<MoviesBloc>();
 
   @override
   bool get wantKeepAlive => true;
+
+  MoviesBloc get bloc => BlocProvider.getBloc<MoviesBloc>();
 
   @override
   void initState() {
@@ -61,7 +62,7 @@ class _TabMoviesState extends State<TabMovies>
       onRefresh: _onRefresh,
       child: GridView.builder(
         gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemCount: movies.length,
         itemBuilder: (context, index) {
           return _item(movies, index, context);
