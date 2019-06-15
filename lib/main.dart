@@ -11,18 +11,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       blocs: [
-        Bloc((i) => MoviesBloc()),
-        Bloc((i) => FavoritosBloc()),
+        /**
+         * Os blocs estão na HomePage para mostrar que não necessariamente os blocs precisam ser declarados no arquivo main.
+         * Você pode declarar os blocs em qualquer lugar da sua hierarchia de Widgets,
+         * e recuperá-los nos Widgets filhos.
+         */
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.deepOrange,
-          textTheme: TextTheme(
-              title: TextStyle(fontSize: 30, color: Colors.red),
-              subtitle: TextStyle(fontSize: 20, color: Colors.red),
-              body1: TextStyle(fontSize: 15, color: Colors.red)),
         ),
         home: LoginPage(),
       ),
