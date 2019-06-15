@@ -1,5 +1,6 @@
 import 'dart:convert' as convert;
 
+import 'package:flutter_movies_udemy/movies/api_key.dart';
 import 'package:flutter_movies_udemy/movies/movie.dart';
 import 'package:flutter_movies_udemy/utils/response.dart';
 import 'package:http/http.dart' as http;
@@ -12,7 +13,7 @@ class MoviesApi {
       // await Future.delayed(Duration(seconds: 1));
 
       final url =
-          "https://api.themoviedb.org/3/movie/popular?api_key=9ac4466dcf069ac63db44c560c9e8731&language=pt-BR";
+          "https://api.themoviedb.org/3/movie/popular?api_key=$api_key&language=pt-BR";
       print("> get: $url");
 
       final response = await http.get(url);
