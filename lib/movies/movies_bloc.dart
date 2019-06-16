@@ -1,4 +1,3 @@
-import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter_movies_udemy/movies/movie_api.dart';
 import 'package:flutter_movies_udemy/utils/simple_bloc.dart';
 
