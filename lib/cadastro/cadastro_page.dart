@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movies_udemy/cadastro/cadastro_bloc.dart';
+import 'package:flutter_movies_udemy/home/home_page.dart';
 import 'package:flutter_movies_udemy/utils/alerts.dart';
 import 'package:flutter_movies_udemy/utils/nav.dart';
 import 'package:flutter_movies_udemy/utils/validators.dart';
@@ -57,7 +58,7 @@ class _CadastroPageState extends State<CadastroPage> {
                 validator: (text) {
                   return validateRequired(text, "Informe o nome");
                 },
-                onSave: (value) => this._input.nome = value,
+                onSaved: (value) => this._input.nome = value,
               ),
             ),
             Container(
@@ -68,7 +69,7 @@ class _CadastroPageState extends State<CadastroPage> {
                 validator: (text) {
                   return validateRequired(text, "Informe o email");
                 },
-                onSave: (value) => this._input.email = value,
+                onSaved: (value) => this._input.email = value,
               ),
             ),
             Container(
@@ -79,7 +80,7 @@ class _CadastroPageState extends State<CadastroPage> {
                 validator: (text) {
                   return validateRequired(text, "Informe o login");
                 },
-                onSave: (value) => this._input.login = value,
+                onSaved: (value) => this._input.login = value,
               ),
             ),
             Container(
@@ -91,7 +92,7 @@ class _CadastroPageState extends State<CadastroPage> {
                 validator: (text) {
                   return validateRequired(text, "Informe a senha");
                 },
-                onSave: (value) => this._input.senha = value,
+                onSaved: (value) => this._input.senha = value,
               ),
             ),
             StreamBuilder<bool>(
@@ -131,8 +132,7 @@ class _CadastroPageState extends State<CadastroPage> {
 
     final response = await _bloc.cadastrar(_input);
     if (response.isOk()) {
-      //pushReplacement(context, HomePage());
-      print("OK!");
+      pushReplacement(context, HomePage());
     } else {
       alert(context, "Filmes", response.msg);
     }
@@ -146,6 +146,6 @@ class _CadastroPageState extends State<CadastroPage> {
   void dispose() {
     super.dispose();
 
-    _bloc.close();
+    _bloc.dispose();
   }
 }

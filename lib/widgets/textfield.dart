@@ -5,17 +5,17 @@ class AppText extends StatelessWidget {
   final String label;
   final String hint;
   final Function validator;
-  final Function onSave;
+  final Function onSaved;
   final bool password;
 
   AppText(this.label, this.hint,
-      {this.validator, this.onSave, this.password = false});
+      {this.validator, this.onSaved, this.password = false});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: this.validator,
-      onSaved: this.onSave,
+      onSaved: this.onSaved,
       obscureText: password,
       keyboardType: TextInputType.text,
       style: TextStyle(
@@ -27,10 +27,10 @@ class AppText extends StatelessWidget {
           labelStyle: TextStyle(
               color: Colors.grey, fontSize: 18, fontWeight: FontWeight.bold),
           hintText: this.hint,
-//          hintStyle: TextStyle(
-//            color: Colors.deepOrange,
-//            fontSize: 18,
-//          ),
+          hintStyle: TextStyle(
+            color: Colors.deepOrange,
+            fontSize: 18,
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(22),
           ),

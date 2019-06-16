@@ -1,9 +1,7 @@
-import 'package:flutter_movies_udemy/utils/progress_bloc.dart';
+import 'package:flutter_movies_udemy/cadastro/cadastro_api.dart';
+import 'package:flutter_movies_udemy/utils/simple_bloc.dart';
 
-import 'cadastro_api.dart';
-
-class CadastroBloc {
-  final progress = ProgressBloc();
+class CadastroBloc extends SimpleBloc {
 
   cadastrar(CadastroInput input) async {
     progress.setProgress(true);
@@ -13,9 +11,5 @@ class CadastroBloc {
     } finally {
       progress.setProgress(false);
     }
-  }
-
-  close() {
-    progress.close();
   }
 }

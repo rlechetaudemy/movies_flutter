@@ -11,11 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       blocs: [
-        /**
-         * Os blocs estão na HomePage para mostrar que não necessariamente os blocs precisam ser declarados no arquivo main.
-         * Você pode declarar os blocs em qualquer lugar da sua hierarchia de Widgets,
-         * e recuperá-los nos Widgets filhos.
-         */
+//        Bloc((i) => MoviesBloc()),
+//        Bloc((i) => FavoritosBloc()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

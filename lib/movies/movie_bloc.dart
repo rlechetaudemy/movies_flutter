@@ -7,9 +7,7 @@ import 'package:rxdart/rxdart.dart';
 class MovieBloc {
   // Flag do favorito
   final _flagFavoritos = BehaviorSubject<bool>();
-
   get getFavoritos => _flagFavoritos.stream;
-
   get setFavorito => _flagFavoritos.sink.add;
 
   Future<bool> fetchFavorito(Movie m) async {
@@ -42,16 +40,13 @@ class MovieBloc {
         return true;
       }
     } finally {
-      // Manda evento para atualizar a tela anterior
-      // Outra maneira de fazer seria deixar o bloc de favoritos global.
-      //eventBus.fire(FavoritosEvent());
-
+      // Atualiza o bloc de favoritos
       final favoritosBloc = BlocProvider.getBloc<FavoritosBloc>();
       favoritosBloc.fetch();
     }
   }
 
-  close() {
+  dispose() {
     _flagFavoritos.close();
   }
 }

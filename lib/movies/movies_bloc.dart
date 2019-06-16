@@ -1,35 +1,22 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter_movies_udemy/movies/movie_api.dart';
-import 'package:rxdart/rxdart.dart';
+import 'package:flutter_movies_udemy/utils/simple_bloc.dart';
 
-import 'movie.dart';
-
-class MoviesBloc extends BlocBase {
-  // stream
-  final _moviesController = BehaviorSubject<List<Movie>>();
-
-  get stream => _moviesController.stream;
+class MoviesBloc extends SimpleBloc {
 
   Future fetch({bool isRefresh = false}) async {
     try {
       if (isRefresh) {
-        _moviesController.sink.add(null);
+        add(null);
       }
 
       final movies = await MoviesApi.getMovies();
 
-      _moviesController.sink.add(movies);
+      add(movies);
 
       return movies;
     } catch (error) {
-      _moviesController.addError("Nenhum Filme !!!");
+      addError("Nenhum Filme !!!");
     }
-  }
-
-  @override
-  void dispose() {
-    _moviesController.close();
-
-    super.dispose();
   }
 }

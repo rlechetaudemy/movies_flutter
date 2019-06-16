@@ -18,7 +18,7 @@ class _TabMoviesState extends State<TabMovies>
   @override
   bool get wantKeepAlive => true;
 
-  MoviesBloc get bloc => BlocProvider.getBloc<MoviesBloc>();
+  final bloc = BlocProvider.getBloc<MoviesBloc>();
 
   @override
   void initState() {

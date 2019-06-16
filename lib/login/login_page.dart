@@ -29,7 +29,10 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
-        children: <Widget>[BgLogin(), _body()],
+        children: <Widget>[
+          BgLogin(),
+          _body(),
+        ],
       ),
     );
   }
@@ -54,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                 validator: (text) {
                   return validateRequired(text, "Informe o login");
                 },
-                onSave: (value) => this._input.login = value,
+                onSaved: (value) => this._input.login = value,
               ),
             ),
             Container(
@@ -66,13 +69,14 @@ class _LoginPageState extends State<LoginPage> {
                 validator: (text) {
                   return validateRequired(text, "Informe a senha");
                 },
-                onSave: (value) => this._input.senha = value,
+                onSaved: (value) => this._input.senha = value,
               ),
             ),
             StreamBuilder<bool>(
               stream: _bloc.progress.stream,
               initialData: false,
               builder: (context, snapshot) {
+
                 return Container(
                   margin: EdgeInsets.only(top: 16),
                   child: AppButton(
@@ -121,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
     if (response.isOk()) {
       pushReplacement(context, HomePage());
     } else {
-      alert(context, "Filmes", "Erro de login");
+      alert(context, "Filmes", response.msg);
     }
   }
 
@@ -138,6 +142,6 @@ class _LoginPageState extends State<LoginPage> {
   void dispose() {
     super.dispose();
 
-    _bloc.close();
+    _bloc.dispose();
   }
 }

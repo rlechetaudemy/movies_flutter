@@ -15,12 +15,14 @@ class AppLink extends StatelessWidget {
         onTap: onPressed,
         child: Container(
           padding: EdgeInsets.all(16),
-          child: Text(text,
-              style: TextStyle(
-                color: this.color,
-                decoration: TextDecoration.underline,
-                fontSize: 16,
-              )),
+          child: Text(
+            text,
+            style: TextStyle(
+              color: this.color,
+              decoration: TextDecoration.underline,
+              fontSize: 16,
+            ),
+          ),
         ),
       ),
     );

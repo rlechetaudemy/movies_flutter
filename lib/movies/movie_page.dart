@@ -187,6 +187,6 @@ class _MoviePageState extends State<MoviePage> {
   void dispose() {
     super.dispose();
 
-    _bloc.close();
+    _bloc.dispose();
   }
 }

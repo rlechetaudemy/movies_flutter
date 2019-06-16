@@ -1,6 +1,6 @@
 import 'package:flutter_movies_udemy/movies/movie.dart';
 import 'package:flutter_movies_udemy/movies/movie_db.dart';
-import 'package:flutter_movies_udemy/utils/generic_bloc.dart';
+import 'package:flutter_movies_udemy/utils/simple_bloc.dart';
 
 class FavoritosBloc extends SimpleBloc<List<Movie>> {
   Future fetch({bool isRefresh = false}) async {
@@ -15,8 +15,10 @@ class FavoritosBloc extends SimpleBloc<List<Movie>> {
       add(movies);
 
       return movies;
-    } catch (error) {
-      addError("Nenhum Filme !!!");
+    } catch (error, exception) {
+      print("$error - $exception");
+
+      addError("Nenhum filme nos favoritos.");
     }
   }
 }
