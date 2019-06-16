@@ -37,7 +37,10 @@ class _MoviePageState extends State<MoviePage> {
         backgroundColor: Colors.deepOrange,
         expandedHeight: 350,
         pinned: false,
-        actions: <Widget>[iconFavorito()],
+        actions: <Widget>[
+          // Favorito
+          iconFavorito(),
+        ],
         flexibleSpace: FlexibleSpaceBar(
           centerTitle: false,
           title: Text("${movie.title}"),
@@ -69,17 +72,17 @@ class _MoviePageState extends State<MoviePage> {
       },
       child: Container(
         margin: EdgeInsets.only(right: 10),
-        width: 36,
-        height: 36,
+        width: 66,
+        height: 66,
         child: StreamBuilder(
           initialData: false,
           stream: _bloc.getFavoritos,
           builder: (context, snapshot) {
             return FlareActor(
-              "assets/animations/favorite.flr",
+              "assets/animations/heart.flr",
               color: snapshot.data ? Colors.red : Colors.white,
               shouldClip: false,
-              animation: snapshot.data ? "Favorite" : "Unfavorite",
+              animation: snapshot.data ? "Like" : "Dislike",
             );
           },
         ),
