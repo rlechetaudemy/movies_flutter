@@ -8,10 +8,6 @@ class ProgressBloc {
     controller.sink.add(b);
   }
 
-//  void setProgressNull(bool b) {
-//    _progressController.sink.add(null);
-//  }
-
   close() {
     controller.close();
   }
