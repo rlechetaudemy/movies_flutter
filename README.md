@@ -5,7 +5,7 @@ https://www.udemy.com/flutter-essencial/
 
 ## Projeto utiliza:
 
-* RxDart : https://pub.dev/packages/rxdart
+* carousel_slider : https://pub.dev/packages/rxdart
 * Bloc   : https://pub.dev/packages/bloc_pattern
 * Flare  : https://www.2dimensions.com/a/funwithflutter/files/flare/heart/preview
 
